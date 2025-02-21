@@ -1,0 +1,29 @@
+.main {
+  display: flex;
+  width: 20%;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 10px;
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  gap: 0px 5px;
+}
+
+.edit {
+  color: black;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.edit:hover {
+  color: rgb(158, 157, 157);
+}
+
+.editCross {
+  display: flex;
+}

@@ -1,0 +1,6 @@
+.ToDoListContainer {
+  padding: 10px;
+  display: flex;
+  gap: 10px 10px;
+  flex-wrap: wrap;
+}
