@@ -24,44 +24,49 @@ function Item({ name, onItems, id, items, onName }) {
   }
 
   return (
-    <div className="border border-gray-300 rounded-lg p-4 shadow-md bg-white">
-      <p className="text-lg font-medium text-gray-800">{name}</p>
-      <div className="flex justify-between items-center mt-2">
-        <div className="flex gap-3">
+    <div className="bg-white rounded-lg shadow-md p-4 border border-gray-200 hover:shadow-lg transition duration-200">
+      <p className="font-medium text-gray-800 mb-3">{name}</p>
+      <div>
+        <div className="flex justify-between items-center mb-2">
           <button
             onClick={() => setIsEdit(true)}
-            className="text-blue-500 hover:underline"
+            className="text-blue-500 hover:text-blue-700 font-medium text-sm"
           >
             Edit
           </button>
           <button
             onClick={handleDelete}
-            className="text-red-500 hover:underline"
+            className="text-red-500 hover:text-red-700"
+            aria-label="Delete item"
           >
             ❌
           </button>
         </div>
-      </div>
-      {isEdit && (
-        <form
-          onSubmit={handleEdit}
-          className="mt-3 p-3 border rounded-lg bg-gray-100"
-        >
-          <p className="text-sm text-gray-600 mb-2">Edit it too?</p>
-          <input
-            onChange={(e) => setTheUpdate(e.target.value)}
-            value={theUpdate}
-            className="border p-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300"
-            placeholder="Enter new name"
-          />
-          <button
-            type="submit"
-            className="mt-2 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition"
+
+        {isEdit && (
+          <form
+            onSubmit={handleEdit}
+            className="mt-3 p-3 bg-gray-50 rounded border border-gray-200"
           >
-            Change
-          </button>
-        </form>
-      )}
+            <p className="text-sm font-medium mb-2">Edit task:</p>
+            <div className="flex gap-2">
+              <input
+                type="text"
+                placeholder="Update task..."
+                className="flex-grow p-2 text-sm border rounded focus:outline-none focus:ring-2 focus:ring-blue-300"
+                onChange={(e) => setTheUpdate(e.target.value)}
+                value={theUpdate}
+              />
+              <button
+                type="submit"
+                className="bg-green-500 hover:bg-green-600 text-white font-medium py-1 px-3 rounded text-sm transition duration-200"
+              >
+                Update
+              </button>
+            </div>
+          </form>
+        )}
+      </div>
     </div>
   );
 }
